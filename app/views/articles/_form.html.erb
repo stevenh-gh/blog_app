@@ -1,0 +1,44 @@
+<%# full_messages_for returns an array of error messages for the attribute. %>
+<%# no errors=empty array %>
+
+
+<%# <form action='/articles' accept-charset='UTF-8' method='post'> %>
+<%# <input type='hidden' name='authenticity_token' value='...'> %>
+<%=form_with model:article do |form|%>
+
+<div>
+<%# <label for='article_title'>Title</label><br> %>
+<%=form.label :title%><br>
+
+<%# <input type='text' name='article[title]' id='article_title'> %>
+<%=form.text_field :title%>
+
+<%=article.errors.full_messages_for(:title).each do |message|%>
+<div>
+<%=message%>
+</div>
+<%end%>
+
+</div>
+
+<div>
+<%# <label for='article_body'>Body</label><br> %>
+<%=form.label :body%><br>
+
+<%# <textarea name='article[body]' id='article_body'></textarea> %>
+<%=form.text_area :body%>
+
+<%=article.errors.full_messages_for(:body).each do |message|%>
+<div>
+<%=message%>
+</div>
+<%end%>
+</div>
+
+<div>
+<%# <input type='submit' name='commit' value='Create Article' data-disable-with='Create Article'> %>
+<%=form.submit%>
+</div>
+
+<%end%>
+<%# </form> %>
