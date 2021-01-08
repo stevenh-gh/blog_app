@@ -11,3 +11,19 @@ method: :delete,
 data: {confirm: 'are you sure?'}%>
 </li>
 </ul>
+
+<h2>
+Comments
+</h2>
+<%=render @article.comments%>
+
+<h2>
+Add a comment:
+</h2>
+
+<%# renders views/comments/_form.html.erb %>
+<%=render 'comments/form'%>
+
+<p>
+<%= link_to  "return to homepage", root_path %>
+</p>
